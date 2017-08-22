@@ -42,7 +42,7 @@
 
 ### I learned that proportional gains being too high would lead to unstable oscillations. If not enough derivative gain was applied the system would continue to oscillate in a very sickening manner. The integral control was interesting in that it took very small gains to prevent the integral control from creating instabilities. The controller worked fine without any integral control but I added it in just incase there were some biases that I could not see. 
 
-
+#### Thanks to the Udacity content creators for making yet another fun and challenging project.
 
 —
 
