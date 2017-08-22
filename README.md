@@ -9,13 +9,13 @@
 
 ### The main focus of the project was tuning the gains Kp, Ki, and Kd for the proportional, integral, and derivative control inputs respectively. I initially had hoped to implement a Twiddle algorithm that we learned in class but I was unable to determine how to implement Twiddle with the web socket messages. I could not figure out how to restart the simulator automatically and keep the best error gains from previous cycles of Twiddle. This is something I can work on for future improvement. 
 
-### I began my search for the proper gains at unity for all, Kp = Ki = Kd = 1. This led to unsurprisingly poor results illustrated in the video below.
+### I began my search for the proper gains at unity for all, Kp = Ki = Kd = 1. This led to unsurprisingly poor results illustrated in the video below. The steering is erratic and the car is slow since it is always turning left to right rapidly. I suspected that this was due to integral gain being too high.
 
 [YouTube Video](https://youtu.be/Jcn9RCAVQMA)
 
 [![alt text](https://img.youtube.com/vi/Jcn9RCAVQMA/0.jpg)](https://youtu.be/Jcn9RCAVQMA)
 
-### I then tried to remove integral control to see its affect (see video below). It resulted in better performance but still unstable.
+### I then tried to remove integral control to see its affect (see video below). It resulted in much better performance but still unstable in the long term, now probably due to high proportional gain.
 
 
 [YouTube Video](https://youtu.be/1ZOiqiPqEo4)
@@ -23,7 +23,7 @@
 [![alt text](https://img.youtube.com/vi/1ZOiqiPqEo4/0.jpg)](https://youtu.be/1ZOiqiPqEo4)
 
 
-### Then I dropped the proportional gain (Kp = 0.1) to reduce instability (see video below).
+### Then I dropped the proportional gain (Kp = 0.1) to reduce instability (see video below). This made the controller marginally stable and had a limit cycle oscillation which I wanted to eliminate. 
 
 
 [YouTube Video](https://youtu.be/0N598MWOngM)
@@ -31,7 +31,7 @@
 [![alt text](https://img.youtube.com/vi/0N598MWOngM/0.jpg)](https://youtu.be/0N598MWOngM)
 
 
-### Now that I could see the affect of each gain, I then spent some good hours tuning each gain until I reached my final result of Kp = .25, Ki = .001, Kd = 12 for steering control. I also implemented a cruise control using the following gain values tuned starting from my steering gains. The throttle gains final result were Kp = .25, Ki = .005, Kd = 1 (see video below).
+### Now that I could see the affect of each gain, I then spent some good hours tuning each gain until I reached my final result of Kp = .25, Ki = .001, Kd = 12 for steering control. I also implemented a cruise control using the following gain values tuned starting from my steering gains. The throttle gains final result were Kp = .25, Ki = .005, Kd = 1 (see video below). The video is taken on my cell phone since when I tried to do a screen recording it affected the stability of the car, probably by inducing a lag in processing time. 
 
 
 [YouTube Video](https://youtu.be/3RdFmy1HVIs)
